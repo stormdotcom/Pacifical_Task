@@ -8,10 +8,22 @@ const Position = sequelize.define("Position", {
         autoIncrement:true,
         primaryKey:true
     },
-    coordinates:{
-        type: DataTypes.GEOGRAPHY("POINT"),
-        allowNull:false
-    },
+    latitude: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+        validate: {
+          min: -90,
+          max: 90,
+        },
+      },
+      longitude: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+        validate: {
+          min: -180,
+          max: 180,
+        },
+      },
     status:{
         type: DataTypes.ENUM("online", "offline"),
         allowNull:false

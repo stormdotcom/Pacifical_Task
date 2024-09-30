@@ -5,6 +5,7 @@ dotenv.config();
 
 const sequelize = new Sequelize(process.env.DB_URL, {
   dialect: 'postgres',
+  logging:false
 });
 
 
@@ -19,6 +20,6 @@ const connectPG = async () => {
   }
 };
 
+connectPG();
 
-connectPG()
 module.exports = sequelize;
