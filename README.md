@@ -1,8 +1,8 @@
-## **Task** | Backend Asset & Positions API
+## _Task_ | Backend Asset & Positions API
 
-** Technologies Used ** : Nodejs, ExpressJS, Postgresql, Docker
+**Technologies Used** : Nodejs, ExpressJS, Postgresql, Docker
 
-** Libraries Used ** : sequelize, jsonwebtoken, bcrypt, pg
+**Libraries Used** : sequelize, jsonwebtoken, bcrypt, pg
 
 ### Project initial setup
 
