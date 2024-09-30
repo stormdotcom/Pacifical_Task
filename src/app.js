@@ -11,7 +11,11 @@ app.use(express.json());
 
 
 
+// const assetRoutes = require('./routes/assetRoutes');
+// const positionRoutes = require('./routes/positionRoutes');
 
+// app.use('/assets', assetRoutes);
+// app.use('/positions', positionRoutes);
 
 
 app.get("/test",((req, res)=> {
