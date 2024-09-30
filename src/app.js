@@ -1,13 +1,16 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
-// const db = require('./utils/db');
+const db = require('./utils/db');
 
 
 dotenv.config();
 
 
 app.use(express.json());
+
+
+
 
 
 
