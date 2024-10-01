@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
 const logger = require("morgan");
+const http = require('http');
+const socketIo = require('socket.io');
 
 const db = require('./utils/db');
 const assetRoutes = require('./routes/assetRoutes');
@@ -9,9 +11,13 @@ const positionRoutes = require('./routes/positionRoutes');
 const authRoutes = require("./routes/authRoutes");
 const { notFoundMiddleware, errorHandler } = require('./middlewares/errorMiddleware');
 const { connectPG } = require('./utils/connection');
+const socketHandler = require('./sockets');
 
+const server = http.createServer(app);
+const io = socketIo(server);
 
 dotenv.config();
+socketHandler(io);
 
 app.use(logger('dev'));
 app.use(express.json());
