@@ -6,9 +6,8 @@
 
 ### Prerequisites
 
-`Node v18.3.2
- postgres 14
-`
+`NodeJS v18.20.3`
+`postgres 14`
 
 ````md
 ### Project Initial Setup
