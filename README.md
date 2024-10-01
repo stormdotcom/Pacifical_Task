@@ -10,18 +10,49 @@
  postgres 14
 `
 
-### Project initial setup
+````md
+### Project Initial Setup
 
-- Install postgres db
-- create database called `pacifical_task`
+#### 1. Install PostgreSQL
+
+- Ensure **PostgreSQL 14** is installed on your system.
+- Create a database named `pacifical_task`:
+  ```bash
+  CREATE DATABASE pacifical_task
+  ```
+````
+
+#### 2. Clone the Project
+
+```bash
+git clone https://github.com/stormdotcom/Pacifical_Task
+cd Pacifical_Task
+```
+
+#### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+#### 4. Run the Development Server
+
+```bash
+npm run dev
+```
+
+The server should now be running locally in port 8080.
+
+> **Note**: Ensure that PostgreSQL is running and the `pacifical_task` database is available.
+
+````
 
 ### API Documentation
 
-This API handles the management of assets (vessels) and their positional data, including connectivity status. All endpoints require authentication using a token.
 
 #### Authentication
 
-### Get Auth Token
+##### Get Auth Token
 
 **Endpoint:** `POST /auth/token`
 
@@ -32,7 +63,7 @@ This API handles the management of assets (vessels) and their positional data, i
   "username": "test",
   "password": "password123"
 }
-```
+````
 
 **Response:** A JWT token for further requests.
 
