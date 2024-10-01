@@ -240,3 +240,15 @@ The server should now be running locally in port 8080.
 ### Notes
 
 - pass the authentication token in the header for all requests except `/auth/token`.
+
+### Future Add-Ons
+
+1. **Caching with Redis**: Implement caching to enhance read performance and reduce database load.
+
+2. **API Level Validation**: Introduce validation for input data to ensure it meets expected formats and types.
+
+3. **Parameter Pollution Prevention**: Validate query parameters to prevent parameter pollution attacks.
+
+4. **Rate Limiting**: Implement a rate limiter to control the number of requests a user can make to the API, preventing abuse.
+
+5. **Real-Time Position Updates**: Establish a WebSocket connection for real-time updates of asset positions, allowing for instant data sharing.
