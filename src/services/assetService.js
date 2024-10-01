@@ -6,8 +6,13 @@ class AssetService {
     return await Asset.create(assetData);
   }
 
-  async getAssets() {
-    return await Asset.findAll();
+  async getAssets(filters) {
+    const { type } = filters;
+    return await Asset.findAll({
+      where: {
+        type: type 
+      }
+    });
   }
 
   async getAssetById(id) {

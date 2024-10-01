@@ -103,7 +103,6 @@ The server should now be running locally in port 8080.
 **Query Parameters:**
 
 - `type`: Filter assets by type (e.g., "Vessel").
-- `status`: Filter by asset status (e.g., "online", "offline").
 - Pagination support for future enhancements.
 
 **Response:** A list of assets, including `id`, `name`, `type`, and `description`.

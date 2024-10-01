@@ -12,7 +12,8 @@ exports.createAsset = async (req, res) => {
 
 exports.getAssets = async (req, res) => {
   try {
-    const assets = await assetService.getAssets();
+    const type = req.query.type || 'Vessel'; 
+    const assets = await assetService.getAssets({ type });
     res.status(200).json(assets);
   } catch (error) {
     res.status(500).json({ error: error.message });
