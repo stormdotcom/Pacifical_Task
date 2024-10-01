@@ -7,9 +7,9 @@
 ### Prerequisites
 
 `NodeJS v18.20.3`
+
 `postgres 14`
 
-````md
 ### Project Initial Setup
 
 #### 1. Install PostgreSQL
@@ -19,7 +19,6 @@
   ```bash
   CREATE DATABASE pacifical_task
   ```
-````
 
 #### 2. Clone the Project
 
@@ -44,10 +43,7 @@ The server should now be running locally in port 8080.
 
 > **Note**: Ensure that PostgreSQL is running and the `pacifical_task` database is available.
 
-````
-
 ### API Documentation
-
 
 #### Authentication
 
@@ -62,11 +58,9 @@ The server should now be running locally in port 8080.
   "username": "test",
   "password": "password123"
 }
-````
+```
 
 **Response:** A JWT token for further requests.
-
----
 
 #### Asset Management
 
