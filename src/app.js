@@ -8,6 +8,7 @@ const assetRoutes = require('./routes/assetRoutes');
 const positionRoutes = require('./routes/positionRoutes');
 const authRoutes = require("./routes/authRoutes");
 const { notFoundMiddleware, errorHandler } = require('./middlewares/errorMiddleware');
+const { connectPG } = require('./utils/connection');
 
 
 dotenv.config();
@@ -27,6 +28,10 @@ app.get("/test",((req, res)=> {
 
 app.use(errorHandler);
 app.use(notFoundMiddleware);
+
+(async () => {
+  await connectPG()
+})();
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
