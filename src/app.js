@@ -19,7 +19,7 @@ app.use('/auth', authRoutes);
 app.use('/assets', assetRoutes);
 app.use('/positions', positionRoutes);
 
-
+//  ping test
 app.get("/test",((req, res)=> {
     res.status(200).json({message:"test"})
 }));

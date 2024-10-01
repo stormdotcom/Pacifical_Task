@@ -2,9 +2,9 @@ const positionService = require('../services/positionService');
 
 exports.createPosition = async (req, res) => {
   try {
-    const { assetId } = req.params;
+    const { id } = req.params;
     const positionData = req.body;
-    const newPosition = await positionService.createPosition(assetId, positionData);
+    const newPosition = await positionService.createPosition(id, positionData);
     res.status(201).json(newPosition);
   } catch (error) {
     if (error.message === 'Asset not found') {
@@ -25,8 +25,8 @@ exports.getLatestPositions = async (req, res) => {
 
 exports.getLatestPositionByAssetId = async (req, res) => {
   try {
-    const { assetId } = req.params;
-    const position = await positionService.getLatestPositionByAssetId(assetId);
+    const { id } = req.params;
+    const position = await positionService.getLatestPositionByAssetId(id);
     res.status(200).json(position);
   } catch (error) {
     if (error.message === 'No positions found for this asset') {

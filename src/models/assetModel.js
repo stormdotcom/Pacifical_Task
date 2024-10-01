@@ -1,26 +1,41 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("../utils/db");
+const { DataTypes, Model } = require('sequelize');
+const sequelize = require('../utils/db');
 
+class Asset extends Model {}
 
-const Asset = sequelize.define("Asset", {
-    id:{
-        type:DataTypes.INTEGER,
-        autoIncrement:true,
-        primaryKey:true
+Asset.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
     },
-    name:{
-        type:DataTypes.STRING,
-        unique:true,
-        allowNull:true
+    name: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
     },
-    type:{
-        type: DataTypes.STRING,
-        allowNull: false,
-        defaultValue:"v1"
+    type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'vessel',
     },
-    description:{
-        type:DataTypes.STRING
-    }
-});
+    description: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+  },
+  {
+    sequelize,
+    modelName: 'Asset',
+    tableName: 'Assets',
+    timestamps: true,
+    indexes: [
+      {
+        fields: ['name'],
+      },
+    ],
+  }
+);
 
-module.exports = Asset
+module.exports = Asset;

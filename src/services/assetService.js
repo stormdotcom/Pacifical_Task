@@ -1,5 +1,5 @@
 
-const Asset = require('../models/assetModel');
+const {Position, Asset} = require('../models');
 
 class AssetService {
   async createAsset(assetData) {
@@ -11,8 +11,37 @@ class AssetService {
   }
 
   async getAssetById(id) {
-    return await Asset.findByPk(id);
-  }
+      const asset = await Asset.findByPk(id, {
+        include: [
+          {
+            model: Position,
+            as: 'positions',
+            separate: true,
+            limit: 1,
+            order: [['createdAt', 'DESC']],
+          },
+        ],
+      });
+  
+      if (!asset) {
+        return null;
+      }
+  
+      // Extract the latest position
+      let latestPosition = null;
+      if (asset.positions && asset.positions.length > 0) {
+        latestPosition = asset.positions[0];
+      }
+  
+      // Prepare the response
+      const assetData = asset.toJSON();
+      assetData.latestPosition = latestPosition;
+      delete assetData.positions; // Remove positions array if you only want the latest position
+  
+      return assetData;
+    }
+  
+
 
   async updateAsset(id, assetData) {
     const asset = await Asset.findByPk(id);

@@ -1,6 +1,4 @@
-
-const Position = require('../models/positionModel');
-const Asset = require('../models/assetModel');
+const {Position, Asset} = require('../models');
 const { Op } = require('sequelize');
 
 class PositionService {
@@ -17,17 +15,18 @@ class PositionService {
       attributes: [
         'id',
         'assetId',
-        'coordinates',
+        'latitude',
+        'longitude',
         'status',
         'createdAt',
       ],
       include: [
         {
           model: Asset,
+          as: 'asset',
           attributes: ['name', 'type'],
         },
       ],
-      group: ['assetId'],
       order: [['createdAt', 'DESC']],
     });
     return latestPositions;
