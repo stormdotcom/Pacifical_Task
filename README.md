@@ -62,6 +62,8 @@ The server should now be running locally in port 8080.
 
 **Response:** A JWT token for further requests.
 
+- you need to pass the token in the `Authorization` header as a Bearer token in all subsequent request.
+
 #### Asset Management
 
 ##### Create a New Asset
