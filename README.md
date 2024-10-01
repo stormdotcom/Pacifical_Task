@@ -39,6 +39,18 @@ npm install
 npm run dev
 ```
 
+#### Optional : using docker
+
+```bash
+docker-compose up --build
+```
+
+Shut Down Containers
+
+```bash
+ docker-compose down
+```
+
 The server should now be running locally in port 8080.
 
 > **Note**: Ensure that PostgreSQL is running and the `pacifical_task` database is available.
